@@ -1,16 +1,25 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import API from "../services/api";
 
 function Register() {
-
   const navigate = useNavigate();
+
+  const [loading, setLoading] = useState(false);
 
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     password: "",
   });
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+
+    if (token) {
+      navigate("/dashboard");
+    }
+  }, [navigate]);
 
   const handleChange = (e) => {
     setFormData({
@@ -20,34 +29,29 @@ function Register() {
   };
 
   const handleSubmit = async (e) => {
-
     e.preventDefault();
 
-    try {
+    setLoading(true);
 
+    try {
       await API.post("/auth/register", formData);
 
       alert("Registration Successful");
 
       navigate("/");
-
     } catch (err) {
-
       alert(err.response?.data?.message || "Registration Failed");
-
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
-
     <div className="container">
-
       <div className="card">
-
         <h1>Register</h1>
 
         <form onSubmit={handleSubmit}>
-
           <input
             type="text"
             name="name"
@@ -76,20 +80,16 @@ function Register() {
           />
 
           <button type="submit">
-            Register
+            {loading ? "Registering..." : "Register"}
           </button>
-
         </form>
 
         <p>
           Already have an account?{" "}
           <Link to="/">Login</Link>
         </p>
-
       </div>
-
     </div>
-
   );
 }
 
