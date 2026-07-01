@@ -42,9 +42,15 @@ function Login() {
     setLoading(true);
 
     try {
-      const res = await API.post("/auth/login", formData);
+     const res = await API.post("/auth/login", formData);
 
-      localStorage.setItem("token", res.data.token);
+console.log("LOGIN RESPONSE :", res.data);
+
+localStorage.setItem("token", res.data.token);
+
+localStorage.setItem("user", JSON.stringify(res.data.user));
+
+console.log("USER SAVED :", localStorage.getItem("user"));
 
       alert("Login Successful");
 

@@ -8,7 +8,19 @@ import {
   FaSignOutAlt,
 } from "react-icons/fa";
 
+import { useNavigate } from "react-router-dom";
+
+
 function Sidebar() {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+  localStorage.removeItem("token");
+  localStorage.removeItem("user");
+
+  navigate("/");
+};
+
   return (
     <aside className="sidebar">
 
@@ -70,7 +82,10 @@ function Sidebar() {
 
         </div>
 
-        <div className="menu-item logout">
+        <div
+  className="menu-item logout"
+  onClick={handleLogout}
+>
 
           <FaSignOutAlt />
 

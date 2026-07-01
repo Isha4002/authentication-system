@@ -1,52 +1,54 @@
+import { useEffect, useState } from "react";
 import { FaBell, FaSearch } from "react-icons/fa";
 
 function Header() {
+  const [user, setUser] = useState({
+    name: "",
+    email: "",
+  });
+
+  useEffect(() => {
+    const storedUser = localStorage.getItem("user");
+
+    if (storedUser) {
+      setUser(JSON.parse(storedUser));
+    }
+  }, []);
+
   return (
     <div className="dashboard-header">
 
       <div>
-
         <h1>Dashboard</h1>
-
-        <p>
-          Welcome back! Manage your authentication system.
-        </p>
-
+        <p>Welcome back, {user.name} 👋</p>
       </div>
 
       <div className="header-right">
 
         <div className="search-box">
-
           <FaSearch className="search-icon" />
-
           <input
             type="text"
             placeholder="Search..."
           />
-
         </div>
 
         <div className="notification">
-
           <FaBell />
-
           <span className="notification-dot"></span>
-
         </div>
 
         <div className="profile-mini">
 
-          <img
-            src="https://ui-avatars.com/api/?name=User&background=7c3aed&color=fff"
-            alt="avatar"
-          />
+          <div className="avatar">
+            {user.name ? user.name.charAt(0).toUpperCase() : "U"}
+          </div>
 
           <div>
 
-            <h4>User</h4>
+            <h4>{user.name}</h4>
 
-            <span>Authenticated</span>
+            <span>{user.email}</span>
 
           </div>
 
