@@ -57,25 +57,34 @@ function Login() {
   };
 
   return (
-    <div className="auth-container">
-      <div className="auth-card">
+  <div className="auth-container">
 
-        <div className="auth-header">
-          <div className="logo">
-            <FaShieldAlt />
-            <span>AuthSystem</span>
-          </div>
+    <div className="auth-wrapper">
 
-          <p>
-            Don't have an account?
-            <Link to="/register"> Sign Up</Link>
-          </p>
+      {/* Top Bar */}
+
+      <div className="auth-topbar">
+
+        <div className="logo">
+          <FaShieldAlt className="logo-icon" />
+          <span>AuthSystem</span>
         </div>
 
-        <h1>Welcome Back 👋</h1>
+        <p>
+          Don't have an account?{" "}
+          <Link to="/register">Sign Up</Link>
+        </p>
+
+      </div>
+
+      {/* Login Card */}
+
+      <div className="auth-card">
+
+        <h1>Welcome Back</h1>
 
         <p className="subtitle">
-          Login to continue
+          Login to your account
         </p>
 
         <form onSubmit={handleSubmit}>
@@ -83,6 +92,7 @@ function Login() {
           <label>Email Address</label>
 
           <div className="input-box">
+
             <FaEnvelope className="input-icon" />
 
             <input
@@ -93,6 +103,7 @@ function Login() {
               onChange={handleChange}
               required
             />
+
           </div>
 
           <label>Password</label>
@@ -119,47 +130,36 @@ function Login() {
 
           </div>
 
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-              marginBottom: "20px",
-              fontSize: "14px",
-            }}
-          >
-            <label
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "8px",
-                margin: 0,
-                fontWeight: "normal",
-              }}
-            >
+          <div className="remember-row">
+
+            <label className="remember-me">
+
               <input type="checkbox" />
+
               Remember Me
+
             </label>
 
-            <span
-              style={{
-                color: "#4f46e5",
-                cursor: "pointer",
-              }}
-            >
+            <a href="#" className="forgot-link">
               Forgot Password?
-            </span>
+            </a>
+
           </div>
 
           <button type="submit">
-            {loading ? "Signing In..." : "Sign In"}
+
+            {loading ? "Signing In..." : "Log In"}
+
           </button>
 
         </form>
 
       </div>
+
     </div>
-  );
+
+  </div>
+);
 }
 
 export default Login;

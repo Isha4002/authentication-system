@@ -189,3 +189,160 @@ label{
 }
 
 }
+
+
+
+/* ================= LANDING PAGE ================= */
+
+.landing-page{
+    min-height:100vh;
+    background:linear-gradient(135deg,#f8f9ff,#eef2ff);
+}
+
+.navbar{
+    max-width:1250px;
+    margin:auto;
+    padding:22px 30px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:28px;
+    font-weight:700;
+    color:#111827;
+}
+
+.logo-icon{
+    color:#6d28d9;
+    font-size:34px;
+}
+
+.nav-links{
+    display:flex;
+    list-style:none;
+    gap:35px;
+}
+
+.nav-links a{
+    text-decoration:none;
+    color:#374151;
+    font-weight:500;
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:#6d28d9;
+}
+
+.nav-buttons{
+    display:flex;
+    gap:15px;
+}
+
+.login-btn{
+    background:white;
+    border:1px solid #ddd;
+    padding:12px 22px;
+    border-radius:12px;
+    cursor:pointer;
+    font-weight:600;
+    transition:.3s;
+}
+
+.login-btn:hover{
+    background:#f3f4f6;
+}
+
+.signup-btn{
+    background:linear-gradient(90deg,#6d28d9,#7c3aed);
+    color:white;
+    border:none;
+    padding:12px 24px;
+    border-radius:12px;
+    cursor:pointer;
+    font-weight:600;
+    transition:.3s;
+}
+
+.signup-btn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 8px 20px rgba(109,40,217,.35);
+}
+
+@media(max-width:900px){
+
+.nav-links{
+    display:none;
+}
+
+}
+
+.auth-wrapper{
+    width:100%;
+    max-width:950px;
+}
+
+.auth-topbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:25px;
+    padding:0 10px;
+}
+
+.auth-topbar p{
+    color:#555;
+    font-size:15px;
+}
+
+.auth-topbar a{
+    color:#6d28d9;
+    text-decoration:none;
+    font-weight:600;
+}
+
+.auth-card{
+    width:520px;
+    margin:auto;
+    background:#fff;
+    border-radius:20px;
+    padding:35px;
+    box-shadow:0 20px 50px rgba(0,0,0,.08);
+}
+
+.remember-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin:20px 0;
+}
+
+.remember-me{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    font-size:14px;
+    color:#555;
+    font-weight:500;
+}
+
+.remember-me input{
+    width:16px;
+    height:16px;
+}
+
+.forgot-link{
+    text-decoration:none;
+    color:#6d28d9;
+    font-size:14px;
+    font-weight:600;
+}
+
+.forgot-link:hover{
+    text-decoration:underline;
+}

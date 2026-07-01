@@ -78,27 +78,29 @@ function Register() {
   };
 
   return (
-    <div className="auth-container">
-      <div className="auth-card">
+  <div className="auth-container">
 
-        {/* Top Bar */}
+    <div className="auth-wrapper">
 
-        <div className="auth-header">
+      {/* Top Bar */}
 
-          <div className="logo">
+      <div className="auth-topbar">
 
-            <FaShieldAlt />
-
-            <span>AuthSystem</span>
-
-          </div>
-
-          <p>
-            Already have an account?
-            <Link to="/"> Log In</Link>
-          </p>
-
+        <div className="logo">
+          <FaShieldAlt className="logo-icon" />
+          <span>AuthSystem</span>
         </div>
+
+        <p>
+          Already have an account?{" "}
+          <Link to="/login">Log In</Link>
+        </p>
+
+      </div>
+
+      {/* Card */}
+
+      <div className="auth-card">
 
         <h1>Create Account</h1>
 
@@ -111,7 +113,6 @@ function Register() {
           <label>Full Name</label>
 
           <div className="input-box">
-
             <FaUser className="input-icon" />
 
             <input
@@ -122,13 +123,11 @@ function Register() {
               onChange={handleChange}
               required
             />
-
           </div>
 
           <label>Email Address</label>
 
           <div className="input-box">
-
             <FaEnvelope className="input-icon" />
 
             <input
@@ -139,13 +138,11 @@ function Register() {
               onChange={handleChange}
               required
             />
-
           </div>
 
           <label>Password</label>
 
           <div className="input-box">
-
             <FaLock className="input-icon" />
 
             <input
@@ -163,19 +160,15 @@ function Register() {
             >
               {showPassword ? <FaEyeSlash /> : <FaEye />}
             </span>
-
           </div>
 
           <label>Confirm Password</label>
 
           <div className="input-box">
-
             <FaLock className="input-icon" />
 
             <input
-              type={
-                showConfirmPassword ? "text" : "password"
-              }
+              type={showConfirmPassword ? "text" : "password"}
               name="confirmPassword"
               placeholder="Confirm password"
               value={formData.confirmPassword}
@@ -186,9 +179,7 @@ function Register() {
             <span
               className="eye"
               onClick={() =>
-                setShowConfirmPassword(
-                  !showConfirmPassword
-                )
+                setShowConfirmPassword(!showConfirmPassword)
               }
             >
               {showConfirmPassword ? (
@@ -197,7 +188,6 @@ function Register() {
                 <FaEye />
               )}
             </span>
-
           </div>
 
           <div className="terms">
@@ -217,20 +207,19 @@ function Register() {
           </div>
 
           <button type="submit">
-
             {loading
               ? "Creating Account..."
               : "Create Account"}
-
           </button>
 
         </form>
 
-       
-
       </div>
+
     </div>
-  );
+
+  </div>
+);
 }
 
 export default Register;
