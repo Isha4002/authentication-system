@@ -168,59 +168,7 @@ label{
     box-shadow:0 10px 25px rgba(99,102,241,.35);
 }
 
-/* ---------- DIVIDER ---------- */
 
-.divider{
-    text-align:center;
-    margin:30px 0;
-    color:#999;
-    position:relative;
-}
-
-.divider::before{
-    content:"";
-    position:absolute;
-    left:0;
-    top:50%;
-    width:40%;
-    height:1px;
-    background:#ddd;
-}
-
-.divider::after{
-    content:"";
-    position:absolute;
-    right:0;
-    top:50%;
-    width:40%;
-    height:1px;
-    background:#ddd;
-}
-
-/* ---------- SOCIAL ---------- */
-
-.social-buttons{
-    display:flex;
-    justify-content:center;
-    gap:15px;
-}
-
-.social-buttons button{
-    width:55px;
-    height:55px;
-    border-radius:14px;
-    border:1px solid #ddd;
-    background:white;
-    cursor:pointer;
-    transition:.3s;
-    font-size:20px;
-}
-
-.social-buttons button:hover{
-    transform:translateY(-3px);
-    border-color:#6366f1;
-    color:#6366f1;
-}
 
 /* ---------- RESPONSIVE ---------- */
 

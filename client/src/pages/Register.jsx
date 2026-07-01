@@ -8,9 +8,7 @@ import {
   FaLock,
   FaEye,
   FaEyeSlash,
-  FaGoogle,
-  FaGithub,
-  FaMicrosoft,
+  
   FaShieldAlt,
 } from "react-icons/fa";
 
@@ -228,25 +226,7 @@ function Register() {
 
         </form>
 
-        <div className="divider">
-          <span>or continue with</span>
-        </div>
-
-        <div className="social-buttons">
-
-          <button type="button">
-            <FaGoogle />
-          </button>
-
-          <button type="button">
-            <FaGithub />
-          </button>
-
-          <button type="button">
-            <FaMicrosoft />
-          </button>
-
-        </div>
+       
 
       </div>
     </div>
