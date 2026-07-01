@@ -1,101 +1,243 @@
 @import "tailwindcss";
 
+/* ---------- RESET ---------- */
+
 *{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:Arial,Helvetica,sans-serif;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Inter,Segoe UI,sans-serif;
 }
 
 body{
-  background:#f4f6f9;
+    background:#f5f7fb;
 }
 
-.container{
-  width:100%;
-  height:100vh;
-  display:flex;
-  justify-content:center;
-  align-items:center;
+/* ---------- AUTH PAGE ---------- */
+
+.auth-container{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#eef2ff,#f8fafc);
+    padding:40px 20px;
 }
 
-.card{
-  width:400px;
-  background:white;
-  padding:30px;
-  border-radius:10px;
-  box-shadow:0 0 10px rgba(0,0,0,.1);
+.auth-card{
+    width:460px;
+    background:#fff;
+    border-radius:20px;
+    padding:35px;
+    box-shadow:0 20px 60px rgba(0,0,0,.08);
 }
 
-h1{
-  text-align:center;
-  margin-bottom:25px;
-}
+/* ---------- HEADER ---------- */
 
-input{
-  width:100%;
-  padding:12px;
-  margin:10px 0;
-  border:1px solid #ccc;
-  border-radius:5px;
-}
-
-button{
-  width:100%;
-  padding:12px;
-  margin-top:10px;
-  background:#2563eb;
-  color:white;
-  border:none;
-  border-radius:5px;
-  cursor:pointer;
-  font-size:16px;
-}
-
-button:hover{
-  background:#1d4ed8;
-}
-
-p{
-  text-align:center;
-  margin-top:20px;
-}
-
-a{
-  color:#2563eb;
-  text-decoration:none;
-}
-
-
-
-.navbar{
-    width:100%;
-    height:70px;
-    background:#2563eb;
-    color:white;
+.auth-header{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    padding:0 50px;
+    margin-bottom:35px;
 }
 
-.navbar h2{
-    color:white;
-}
-
-.navbar div{
+.logo{
     display:flex;
-    gap:20px;
     align-items:center;
+    gap:10px;
+    font-size:20px;
+    font-weight:700;
+    color:#4f46e5;
 }
 
-.navbar a{
-    color:white;
+.logo svg{
+    font-size:24px;
+}
+
+.auth-header p{
+    font-size:14px;
+    color:#666;
+}
+
+.auth-header a{
+    color:#4f46e5;
     text-decoration:none;
-    font-weight:bold;
+    font-weight:600;
 }
 
-.navbar button{
-    width:120px;
-    margin:0;
+/* ---------- TITLE ---------- */
+
+.auth-card h1{
+    text-align:center;
+    margin-bottom:8px;
+    font-size:30px;
+    color:#111827;
+}
+
+.subtitle{
+    text-align:center;
+    color:#6b7280;
+    margin-bottom:30px;
+}
+
+/* ---------- LABEL ---------- */
+
+label{
+    display:block;
+    margin-bottom:8px;
+    margin-top:15px;
+    font-size:14px;
+    font-weight:600;
+    color:#374151;
+}
+
+/* ---------- INPUT ---------- */
+
+.input-box{
+    position:relative;
+}
+
+.input-icon{
+    position:absolute;
+    left:15px;
+    top:50%;
+    transform:translateY(-50%);
+    color:#9ca3af;
+}
+
+.input-box input{
+    width:100%;
+    padding:14px 48px;
+    border:1px solid #d1d5db;
+    border-radius:12px;
+    outline:none;
+    transition:.3s;
+    font-size:15px;
+}
+
+.input-box input:focus{
+    border-color:#6366f1;
+    box-shadow:0 0 0 4px rgba(99,102,241,.15);
+}
+
+/* ---------- PASSWORD ---------- */
+
+.eye{
+    position:absolute;
+    right:18px;
+    top:50%;
+    transform:translateY(-50%);
+    cursor:pointer;
+    color:#6b7280;
+}
+
+/* ---------- TERMS ---------- */
+
+.terms{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-top:18px;
+    margin-bottom:25px;
+    font-size:14px;
+    color:#555;
+}
+
+.terms input{
+    width:18px;
+    height:18px;
+}
+
+/* ---------- BUTTON ---------- */
+
+.auth-card button[type="submit"]{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:12px;
+    background:linear-gradient(90deg,#6366f1,#7c3aed);
+    color:white;
+    font-size:16px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.auth-card button[type="submit"]:hover{
+    transform:translateY(-2px);
+    box-shadow:0 10px 25px rgba(99,102,241,.35);
+}
+
+/* ---------- DIVIDER ---------- */
+
+.divider{
+    text-align:center;
+    margin:30px 0;
+    color:#999;
+    position:relative;
+}
+
+.divider::before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:50%;
+    width:40%;
+    height:1px;
+    background:#ddd;
+}
+
+.divider::after{
+    content:"";
+    position:absolute;
+    right:0;
+    top:50%;
+    width:40%;
+    height:1px;
+    background:#ddd;
+}
+
+/* ---------- SOCIAL ---------- */
+
+.social-buttons{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+}
+
+.social-buttons button{
+    width:55px;
+    height:55px;
+    border-radius:14px;
+    border:1px solid #ddd;
+    background:white;
+    cursor:pointer;
+    transition:.3s;
+    font-size:20px;
+}
+
+.social-buttons button:hover{
+    transform:translateY(-3px);
+    border-color:#6366f1;
+    color:#6366f1;
+}
+
+/* ---------- RESPONSIVE ---------- */
+
+@media(max-width:500px){
+
+.auth-card{
+    width:100%;
+    padding:25px;
+}
+
+.auth-header{
+    flex-direction:column;
+    gap:15px;
+}
+
+.auth-card h1{
+    font-size:25px;
+}
+
 }

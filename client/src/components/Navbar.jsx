@@ -12,10 +12,12 @@ function Navbar() {
     <nav className="navbar">
       <h2>Auth System</h2>
 
-      <div>
+      <div className="nav-links">
         <Link to="/dashboard">Dashboard</Link>
 
-        <button onClick={logout}>Logout</button>
+        <button className="logout-btn" onClick={logout}>
+          Logout
+        </button>
       </div>
     </nav>
   );

@@ -6,6 +6,7 @@ function Login() {
   const navigate = useNavigate();
 
   const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   const [formData, setFormData] = useState({
     email: "",
@@ -48,38 +49,56 @@ function Login() {
   };
 
   return (
-    <div className="container">
-      <div className="card">
-        <h1>Login</h1>
+    <div className="auth-container">
+      <div className="auth-card">
+
+        <h1>Welcome Back 👋</h1>
+
+        <p className="subtitle">
+          Login to continue
+        </p>
 
         <form onSubmit={handleSubmit}>
+
           <input
             type="email"
             name="email"
-            placeholder="Enter Email"
+            placeholder="Email Address"
             value={formData.email}
             onChange={handleChange}
             required
           />
 
-          <input
-            type="password"
-            name="password"
-            placeholder="Enter Password"
-            value={formData.password}
-            onChange={handleChange}
-            required
-          />
+          <div className="password-box">
+
+            <input
+              type={showPassword ? "text" : "password"}
+              name="password"
+              placeholder="Password"
+              value={formData.password}
+              onChange={handleChange}
+              required
+            />
+
+            <span
+              onClick={() => setShowPassword(!showPassword)}
+            >
+              {showPassword ? "🙈" : "👁"}
+            </span>
+
+          </div>
 
           <button type="submit">
             {loading ? "Logging in..." : "Login"}
           </button>
+
         </form>
 
-        <p>
-          Don't have an account?{" "}
-          <Link to="/register">Register</Link>
+        <p className="bottom-text">
+          Don't have an account?
+          <Link to="/register"> Register</Link>
         </p>
+
       </div>
     </div>
   );
