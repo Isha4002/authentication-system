@@ -65,3 +65,37 @@ a{
   color:#2563eb;
   text-decoration:none;
 }
+
+
+
+.navbar{
+    width:100%;
+    height:70px;
+    background:#2563eb;
+    color:white;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 50px;
+}
+
+.navbar h2{
+    color:white;
+}
+
+.navbar div{
+    display:flex;
+    gap:20px;
+    align-items:center;
+}
+
+.navbar a{
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.navbar button{
+    width:120px;
+    margin:0;
+}

@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import API from "../services/api";
 
+import Navbar from "../components/Navbar";
+
 function Dashboard() {
   const navigate = useNavigate();
 
@@ -38,6 +40,9 @@ function Dashboard() {
   };
 
   return (
+
+    <>
+<Navbar />
     <div className="container">
       <div className="card">
         <h1>Dashboard</h1>
@@ -58,6 +63,7 @@ function Dashboard() {
         <button onClick={logout}>Logout</button>
       </div>
     </div>
+    </>
   );
 }
 
