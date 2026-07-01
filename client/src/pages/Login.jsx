@@ -2,6 +2,14 @@ import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import API from "../services/api";
 
+import {
+  FaEnvelope,
+  FaLock,
+  FaEye,
+  FaEyeSlash,
+  FaShieldAlt,
+} from "react-icons/fa";
+
 function Login() {
   const navigate = useNavigate();
 
@@ -52,6 +60,18 @@ function Login() {
     <div className="auth-container">
       <div className="auth-card">
 
+        <div className="auth-header">
+          <div className="logo">
+            <FaShieldAlt />
+            <span>AuthSystem</span>
+          </div>
+
+          <p>
+            Don't have an account?
+            <Link to="/register"> Sign Up</Link>
+          </p>
+        </div>
+
         <h1>Welcome Back 👋</h1>
 
         <p className="subtitle">
@@ -60,44 +80,82 @@ function Login() {
 
         <form onSubmit={handleSubmit}>
 
-          <input
-            type="email"
-            name="email"
-            placeholder="Email Address"
-            value={formData.email}
-            onChange={handleChange}
-            required
-          />
+          <label>Email Address</label>
 
-          <div className="password-box">
+          <div className="input-box">
+            <FaEnvelope className="input-icon" />
+
+            <input
+              type="email"
+              name="email"
+              placeholder="Enter your email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+            />
+          </div>
+
+          <label>Password</label>
+
+          <div className="input-box">
+
+            <FaLock className="input-icon" />
 
             <input
               type={showPassword ? "text" : "password"}
               name="password"
-              placeholder="Password"
+              placeholder="Enter your password"
               value={formData.password}
               onChange={handleChange}
               required
             />
 
             <span
+              className="eye"
               onClick={() => setShowPassword(!showPassword)}
             >
-              {showPassword ? "🙈" : "👁"}
+              {showPassword ? <FaEyeSlash /> : <FaEye />}
             </span>
 
           </div>
 
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              marginBottom: "20px",
+              fontSize: "14px",
+            }}
+          >
+            <label
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "8px",
+                margin: 0,
+                fontWeight: "normal",
+              }}
+            >
+              <input type="checkbox" />
+              Remember Me
+            </label>
+
+            <span
+              style={{
+                color: "#4f46e5",
+                cursor: "pointer",
+              }}
+            >
+              Forgot Password?
+            </span>
+          </div>
+
           <button type="submit">
-            {loading ? "Logging in..." : "Login"}
+            {loading ? "Signing In..." : "Sign In"}
           </button>
 
         </form>
-
-        <p className="bottom-text">
-          Don't have an account?
-          <Link to="/register"> Register</Link>
-        </p>
 
       </div>
     </div>
