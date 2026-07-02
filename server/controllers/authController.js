@@ -69,27 +69,46 @@ const login = async (req, res) => {
       });
     }
 
-    // Generate JWT Token
-    const token = jwt.sign(
-      {
-        id: user._id,
-      },
-      process.env.JWT_SECRET,
-      {
-        expiresIn: "1d",
-      }
-    );
+    // Access Token
+const accessToken = jwt.sign(
+  {
+    id: user._id,
+  },
+  process.env.JWT_SECRET,
+  {
+    expiresIn: "15m",
+  }
+);
+
+// Refresh Token
+const refreshToken = jwt.sign(
+  {
+    id: user._id,
+  },
+  process.env.JWT_REFRESH_SECRET,
+  {
+    expiresIn: "7d",
+  }
+);
+
+// Save Refresh Token in DB
+user.refreshToken = refreshToken;
+await user.save();
 
     res.status(200).json({
-      success: true,
-      message: "Login Successful",
-      token,
-      user: {
-        id: user._id,
-        name: user.name,
-        email: user.email,
-      },
-    });
+  success: true,
+  message: "Login Successful",
+
+  token: accessToken,
+
+  refreshToken,
+
+  user: {
+    id: user._id,
+    name: user.name,
+    email: user.email,
+  },
+});
   } catch (err) {
     res.status(500).json({
       success: false,
@@ -202,6 +221,58 @@ const changePassword = async (req, res) => {
   }
 };
 
+// ================= REFRESH TOKEN =================
+
+const refreshAccessToken = async (req, res) => {
+  try {
+    const { refreshToken } = req.body;
+
+    if (!refreshToken) {
+      return res.status(401).json({
+        success: false,
+        message: "Refresh token required",
+      });
+    }
+
+    const decoded = jwt.verify(
+      refreshToken,
+      process.env.JWT_REFRESH_SECRET
+    );
+
+    const user = await User.findById(decoded.id);
+
+    if (!user || user.refreshToken !== refreshToken) {
+      return res.status(403).json({
+        success: false,
+        message: "Invalid Refresh Token",
+      });
+    }
+
+    const accessToken = jwt.sign(
+      {
+        id: user._id,
+      },
+      process.env.JWT_SECRET,
+      {
+        expiresIn: "15m",
+      }
+    );
+
+    res.status(200).json({
+      success: true,
+      token: accessToken,
+    });
+
+  } catch (err) {
+
+    res.status(403).json({
+      success: false,
+      message: "Refresh Token Expired",
+    });
+
+  }
+};
+
 module.exports = {
   register,
   login,
@@ -209,4 +280,5 @@ module.exports = {
   updateProfile,
   changePassword,
   updateProfile,
+  refreshAccessToken,
 };

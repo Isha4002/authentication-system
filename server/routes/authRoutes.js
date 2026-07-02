@@ -10,6 +10,7 @@ const {
   getProfile,
   updateProfile,
   changePassword,
+   refreshAccessToken,
 } = require("../controllers/authController");
 
 // Register
@@ -30,6 +31,11 @@ router.put(
   "/change-password",
   authMiddleware,
   changePassword
+);
+
+router.post(
+  "/refresh-token",
+  refreshAccessToken
 );
 
 module.exports = router;
