@@ -1483,3 +1483,324 @@ background:#fee2e2;
 color:#dc2626;
 
 }
+
+
+.sidebar-link{
+
+text-decoration:none;
+
+color:inherit;
+
+}
+
+/*==================================
+PROFILE PAGE
+==================================*/
+
+.profile-container{
+    display:grid;
+    grid-template-columns:320px 1fr;
+    gap:30px;
+    margin-top:30px;
+}
+
+.profile-left{
+    background:#fff;
+    border-radius:22px;
+    padding:35px;
+    box-shadow:0 10px 30px rgba(0,0,0,.06);
+    text-align:center;
+}
+
+.profile-image{
+    width:150px;
+    height:150px;
+    border-radius:50%;
+    margin:auto;
+    background:linear-gradient(135deg,#7c3aed,#5b21b6);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:white;
+    font-size:60px;
+    font-weight:700;
+    position:relative;
+}
+
+.camera-btn{
+    position:absolute;
+    right:5px;
+    bottom:5px;
+    width:42px;
+    height:42px;
+    border:none;
+    border-radius:50%;
+    background:white;
+    color:#7c3aed;
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
+    cursor:pointer;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:18px;
+}
+
+.profile-left h2{
+    margin-top:20px;
+    font-size:28px;
+    color:#111827;
+}
+
+.profile-left p{
+    color:#6b7280;
+    margin-top:8px;
+}
+
+.profile-left hr{
+    margin:25px 0;
+    border:none;
+    border-top:1px solid #eee;
+}
+
+.joined{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:10px;
+    color:#6b7280;
+    margin-bottom:25px;
+}
+
+.change-photo{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:12px;
+    background:#f5f3ff;
+    color:#7c3aed;
+    font-weight:600;
+    cursor:pointer;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:10px;
+    transition:.3s;
+}
+
+.change-photo:hover{
+    background:#ede9fe;
+}
+
+/* RIGHT CARD */
+
+.profile-right{
+    background:white;
+    padding:35px;
+    border-radius:22px;
+    box-shadow:0 10px 30px rgba(0,0,0,.06);
+}
+
+.profile-right h2{
+    margin-bottom:30px;
+    color:#111827;
+}
+
+.profile-right form{
+    display:flex;
+    flex-direction:column;
+}
+
+.profile-right label{
+    margin-bottom:8px;
+    font-weight:600;
+    color:#374151;
+}
+
+.profile-right input,
+.profile-right textarea{
+    width:100%;
+    padding:16px;
+    border:1px solid #d1d5db;
+    border-radius:12px;
+    margin-bottom:22px;
+    font-size:15px;
+    outline:none;
+    transition:.3s;
+    font-family:inherit;
+}
+
+.profile-right input:focus,
+.profile-right textarea:focus{
+    border-color:#7c3aed;
+    box-shadow:0 0 0 4px rgba(124,58,237,.15);
+}
+
+.profile-right textarea{
+    resize:none;
+}
+
+.update-btn{
+    width:100%;
+    padding:16px;
+    border:none;
+    border-radius:12px;
+    background:linear-gradient(90deg,#7c3aed,#5b21b6);
+    color:white;
+    font-size:17px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.update-btn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 10px 25px rgba(124,58,237,.35);
+}
+
+/* Responsive */
+
+@media(max-width:1000px){
+
+    .profile-container{
+        grid-template-columns:1fr;
+    }
+
+    .profile-left{
+        order:1;
+    }
+
+    .profile-right{
+        order:2;
+    }
+
+}
+
+@media(max-width:600px){
+
+    .profile-left,
+    .profile-right{
+        padding:25px;
+    }
+
+    .profile-image{
+        width:120px;
+        height:120px;
+        font-size:48px;
+    }
+
+}
+
+/*====================================
+CHANGE PASSWORD
+====================================*/
+
+.change-password-card{
+    max-width:700px;
+    margin:35px auto;
+    background:#fff;
+    padding:40px;
+    border-radius:22px;
+    box-shadow:0 10px 30px rgba(0,0,0,.06);
+}
+
+.change-password-card h2{
+    font-size:30px;
+    color:#111827;
+    margin-bottom:10px;
+}
+
+.change-password-card p{
+    color:#6b7280;
+    margin-bottom:35px;
+}
+
+.change-password-card form{
+    display:flex;
+    flex-direction:column;
+}
+
+.change-password-card label{
+    font-weight:600;
+    color:#374151;
+    margin-bottom:10px;
+}
+
+.password-field{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    border:1px solid #d1d5db;
+    border-radius:14px;
+    padding:0 18px;
+    margin-bottom:25px;
+    transition:.3s;
+    background:white;
+}
+
+.password-field:focus-within{
+    border-color:#7c3aed;
+    box-shadow:0 0 0 4px rgba(124,58,237,.12);
+}
+
+.password-field svg:first-child{
+    color:#6b7280;
+    font-size:18px;
+}
+
+.password-field input{
+    flex:1;
+    border:none;
+    outline:none;
+    padding:18px 0;
+    font-size:16px;
+    background:transparent;
+}
+
+.password-field span{
+    cursor:pointer;
+    color:#6b7280;
+    transition:.3s;
+}
+
+.password-field span:hover{
+    color:#7c3aed;
+}
+
+.change-password-card .update-btn{
+    margin-top:10px;
+    width:100%;
+    padding:16px;
+    border:none;
+    border-radius:14px;
+    background:linear-gradient(135deg,#7c3aed,#5b21b6);
+    color:white;
+    font-size:17px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.change-password-card .update-btn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 15px 30px rgba(124,58,237,.30);
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+    .change-password-card{
+        margin:20px;
+        padding:25px;
+    }
+
+    .change-password-card h2{
+        font-size:24px;
+    }
+
+}
+
+.sidebar-link{
+    text-decoration:none;
+    color:inherit;
+}

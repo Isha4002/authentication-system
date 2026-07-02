@@ -8,57 +8,59 @@ import {
   FaSignOutAlt,
 } from "react-icons/fa";
 
-import { useNavigate } from "react-router-dom";
-
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 function Sidebar() {
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handleLogout = () => {
-  localStorage.removeItem("token");
-  localStorage.removeItem("user");
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
 
-  navigate("/");
-};
+    navigate("/");
+  };
 
   return (
     <aside className="sidebar">
 
       <div className="sidebar-logo">
-
-        <FaShieldAlt className="sidebar-logo-icon"/>
-
+        <FaShieldAlt className="sidebar-logo-icon" />
         <span>AuthSystem</span>
-
       </div>
 
       <div className="sidebar-menu">
 
         <p className="menu-title">MAIN</p>
 
-        <div className="menu-item active">
+        <Link to="/dashboard" className="sidebar-link">
+          <div
+            className={`menu-item ${
+              location.pathname === "/dashboard" ? "active" : ""
+            }`}
+          >
+            <FaHome />
+            <span>Dashboard</span>
+          </div>
+        </Link>
 
-          <FaHome />
+        <Link to="/profile" className="sidebar-link">
+          <div
+            className={`menu-item ${
+              location.pathname === "/profile" ? "active" : ""
+            }`}
+          >
+            <FaUser />
+            <span>Profile</span>
+          </div>
+        </Link>
 
-          <span>Dashboard</span>
-
-        </div>
-
-        <div className="menu-item">
-
-          <FaUser />
-
-          <span>Profile</span>
-
-        </div>
-
-        <div className="menu-item">
-
-          <FaCog />
-
-          <span>Settings</span>
-
-        </div>
+        <Link to="/settings" className="sidebar-link">
+          <div className="menu-item">
+            <FaCog />
+            <span>Settings</span>
+          </div>
+        </Link>
 
       </div>
 
@@ -66,31 +68,27 @@ function Sidebar() {
 
         <p className="menu-title">USER</p>
 
+       <Link to="/change-password" className="sidebar-link">
+  <div
+    className={`menu-item ${
+      location.pathname === "/change-password"
+        ? "active"
+        : ""
+    }`}
+  >
+    <FaLock />
+    <span>Change Password</span>
+  </div>
+</Link>
+
         <div className="menu-item">
-
-          <FaLock />
-
-          <span>Security</span>
-
-        </div>
-
-        <div className="menu-item">
-
           <FaHistory />
-
           <span>Sessions</span>
-
         </div>
 
-        <div
-  className="menu-item logout"
-  onClick={handleLogout}
->
-
+        <div className="menu-item logout" onClick={handleLogout}>
           <FaSignOutAlt />
-
           <span>Logout</span>
-
         </div>
 
       </div>
